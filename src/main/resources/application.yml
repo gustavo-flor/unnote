@@ -1,0 +1,19 @@
+server:
+  port: ${SERVER_PORT:8080}
+  shutdown: graceful
+springdoc:
+  api-docs:
+    enabled: ${API_DOCS_ENABLED:false}
+  swagger-ui:
+    enabled: ${SWAGGER_UI_ENABLED:false}
+    path: /
+  packages-to-scan: com.github.gustavoflor.unnote.controller
+spring:
+  application:
+    name: unnote
+  main:
+    banner-mode: off
+  data:
+    mongodb:
+      auto-index-creation: true
+      uri: ${MONGODB_URI}

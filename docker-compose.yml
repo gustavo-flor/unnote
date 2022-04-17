@@ -1,0 +1,19 @@
+version: '3.8'
+services:
+  application:
+    container_name: application
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    environment:
+      SERVER_PORT: 8080
+      MONGODB_URI: mongodb://mongodb:27017/nudemo
+    ports:
+      - '8080:8080'
+    depends_on:
+      - mongodb
+  mongodb:
+    container_name: mongodb
+    image: mongo
+    restart: unless-stopped
